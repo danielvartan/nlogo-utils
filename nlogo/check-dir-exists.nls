@@ -1,0 +1,35 @@
+; extensions [pathdir]
+
+to-report dir-exists? [#dir]
+  assert-string #dir
+
+  if (pathdir:isDirectory? #dir) [
+    report true
+  ] [
+    report false
+  ]
+end
+
+to-report test-dir-exists [#dir]
+  report dir-exists? #dir
+end
+
+to-report check-dir-exists [#dir]
+  assert-string #dir
+
+  ifelse (dir-exists? #dir) [
+    report true
+  ] [
+    report (word
+      "The directory " #dir " does not exist."
+    )
+  ]
+end
+
+to assert-dir-exists [#dir]
+  assert-string #dir
+
+  if (not dir-exists? #dir) [
+    error check-dir-exists #dir
+  ]
+end

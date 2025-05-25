@@ -1,0 +1,13 @@
+to-report rescale [#x #old-min #old-max #new-min #new-max]
+  if (#old-min = #old-max) [
+    error "`#old-min` and `#old-max` cannot be equal."
+  ]
+
+  if (#new-min = #new-max) [
+    error "`#new-min` and `#new-max` cannot be equal."
+  ]
+
+  report #new-min + (
+    ((#x - #old-min) * (#new-max - #new-min)) / (#old-max - #old-min)
+  )
+end

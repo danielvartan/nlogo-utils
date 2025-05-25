@@ -1,0 +1,8 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qnlogo-utils\\E$"}
+{"rule":"DASH_RULE","sentence":"^\\QProject Status: Active - The project has reached a stable, usable state and is being actively developed.\\E$"}
+{"rule":"USE_TO_VERB","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is a repository that I (Daniel Vartanian) use to store and organize my NetLogo utility functions (i.e., \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q procedures).\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QPlease note that not all functions are documented.\\E$"}
+{"rule":"WHITESPACE_RULE","sentence":"^\\QGitHub repo stars\\E$"}
+{"rule":"PUNCTUATION_PARAGRAPH_END","sentence":"^\\QGitHub repo stars\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QAll functions are located in the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q directory.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QAny dependencies are listed in the file header.\\E$"}

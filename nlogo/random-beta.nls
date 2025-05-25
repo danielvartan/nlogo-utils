@@ -1,0 +1,6 @@
+to-report random-beta [#alpha #beta]
+  let #x random-gamma #alpha 1
+  let #y random-gamma #beta 1
+
+  report #x / (#x + #y)
+end
