@@ -10,18 +10,22 @@
 
 ; Ensure `sr:setup` is called in the `setup` procedure.
 
-to-report str-detect [#x #pattern]
+to-report str-replace [#x #pattern #replacement]
   assert-string #pattern
+  assert-string #replacement
 
   set #x normalize-value #x
 
   report sr:runresult (word
-    "stringr::str_detect("
+    "stringr::str_replace("
     "string = "
     #x
     ", "
     "pattern = "
     single-quote #pattern
+    ", "
+    "replacement = "
+    single-quote #replacement
     ")"
   )
 end

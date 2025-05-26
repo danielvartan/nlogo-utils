@@ -10,13 +10,13 @@
 
 ; Ensure `sr:setup` is called in the `setup` procedure.
 
-to-report str-detect [#x #pattern]
+to-report str-extract-all [#x #pattern]
   assert-string #pattern
 
   set #x normalize-value #x
 
   report sr:runresult (word
-    "stringr::str_detect("
+    "stringr::str_extract_all("
     "string = "
     #x
     ", "
