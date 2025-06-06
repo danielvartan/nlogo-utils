@@ -41,6 +41,7 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `is-gis?` `test-gis` (`to-report`): Tests whether a value is a [GIS dataset](https://ccl.northwestern.edu/netlogo/docs/gis.html#gis:type-of).
 - `is-between?` `test-between` (`to-report`): Tests whether a value is between two numbers.
 - `test-choice` (`to-report`): Tests whether a value is one of a set of choices.
+- `test-world-bleed` (`to-report`): Tests whether the edges of the world contain a line of patches with a value of 0.
 
 <br>
 
@@ -73,6 +74,7 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `list-to-c` (`to-report`): Converts a NetLogo list into a string formatted as an R `c()` expression, with elements separated by commas (e.g., `[1 2 3]` → `"c(1, 2, 3)"`).
 - `match` (`to-report`): Returns the first element in a list that matches a specified value.
 - `random-beta` (`to-report`): Returns a random number from a beta distribution with parameters `alpha` and `beta`.
+- `remove-world-bleed` (`to`): Check and remove world bleed patches, which are line of patches at the edges of the world that have a value of 0.
 - `rep` (`to-report`): Returns a list with an atomic value repeated a specified number of times.
 - `rescale` (`to-report`): Rescales a number from one range to another.
 - `single-quote` (`to-report`): Returns values with single quotes. It also works with lists.
