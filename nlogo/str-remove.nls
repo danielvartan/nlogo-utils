@@ -1,5 +1,7 @@
 ; __includes ["check-string.nls" "str-replace.nls"]
 
+; IMPORTANT: Avoid using this procedure, use `string:rex-replace-first` instead.
+
 to-report str-remove [#x #pattern]
   assert-string #pattern
 

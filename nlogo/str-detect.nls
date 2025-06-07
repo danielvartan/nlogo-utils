@@ -8,7 +8,9 @@
 
 ; extensions [sr]
 
-; Ensure `sr:setup` is called in the `setup` procedure.
+; Note: Ensure `sr:setup` is called in the `setup` procedure.
+
+; IMPORTANT: Avoid using this procedure, use `string:rex-match?` instead.
 
 to-report str-detect [#x #pattern]
   assert-string #pattern

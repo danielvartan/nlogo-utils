@@ -8,7 +8,9 @@
 
 ; extensions [sr]
 
-; Ensure `sr:setup` is called in the `setup` procedure.
+; Note: Ensure `sr:setup` is called in the `setup` procedure.
+
+; IMPORTANT: Avoid using this procedure, use `string:rex-replace-all` instead.
 
 to-report str-replace-all [#x #pattern #replacement]
   assert-string #pattern

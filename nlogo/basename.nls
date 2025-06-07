@@ -1,7 +1,7 @@
 ; __includes ["check-string.nls" "normalize-path.nls"]
 ; extensions [sr]
 
-; Ensure `sr:setup` is called in the `setup` procedure.
+; Note: Ensure `sr:setup` is called in the `setup` procedure.
 
 to-report basename [#string]
   assert-string #string
