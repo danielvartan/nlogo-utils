@@ -73,6 +73,7 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `file-path` (`to-report`): Creates a file path from a directory and a file name.
 - `list-to-c` (`to-report`): Converts a NetLogo list into a string formatted as an R `c()` expression, with elements separated by commas (e.g., `[1 2 3]` → `"c(1, 2, 3)"`).
 - `match` (`to-report`): Returns the first element in a list that matches a specified value.
+- `normalize-path` (`to-report`): Normalizes a file path making it compatible with the user operating system.
 - `random-beta` (`to-report`): Returns a random number from a beta distribution with parameters `alpha` and `beta`.
 - `remove-world-bleed` (`to`): Check and remove world bleed patches, which are line of patches at the edges of the world that have a value of 0.
 - `rep` (`to-report`): Returns a list with an atomic value repeated a specified number of times.

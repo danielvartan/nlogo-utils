@@ -1,6 +1,8 @@
 ; __includes [
 ;   "check-atomic.nls"
+;   "check-windws.nls"
 ;   "halt.nls"
+;   "rep-collapse.nls"
 ;   "single-quote.nls"
 ; ]
 
@@ -14,11 +16,13 @@ to-report normalize-path [#path]
   let out as-string #path
   let sep pathdir:get-separator
 
-  ; string:rex-replace-all "/" "../data" "\\\\"
-  set out string:rex-replace-all "/" out sep
+  if (is-windows?) [set sep rep-collapse sep 4]
 
   ; string:rex-replace-all "\\\\" "..\\data" "/"
-  set out string:rex-replace-all "\\\\" out sep
+    set out string:rex-replace-all "\\\\" out sep
+
+  ; string:rex-replace-all "/" "../data" "\\\\"
+  set out string:rex-replace-all "/" out sep
 
   while [string:rex-match? (word ".*" sep "$") out] [
     set out string:rex-replace-first (word sep "$") out ""
@@ -35,10 +39,11 @@ to-report normalize-path [#path]
   ifelse (test = false) [
     user-message (word
       "An unknown error occurred while normalizing the path: "
-      "\n"
+      "\n\n"
       "Original: " single-quote #path
-      "Processed: " single-quote out
       "\n"
+      "Processed: " single-quote out
+      "\n\n"
       "Please check the path and try again."
     )
 
