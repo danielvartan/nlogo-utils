@@ -19,7 +19,7 @@ to-report normalize-path [#path]
   if (is-windows?) [set sep rep-collapse sep 4]
 
   ; string:rex-replace-all "\\\\" "..\\data" "/"
-    set out string:rex-replace-all "\\\\" out sep
+  set out string:rex-replace-all "\\\\" out sep
 
   ; string:rex-replace-all "/" "../data" "\\\\"
   set out string:rex-replace-all "/" out sep
