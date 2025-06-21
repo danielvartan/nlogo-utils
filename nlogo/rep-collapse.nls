@@ -4,5 +4,5 @@ to-report rep-collapse [#x #times]
   assert-atomic #x
   assert-integer #times
 
-  report collapse (n-values #times (list #x)) "" false
+  report collapse (n-values #times [#x]) "" false
 end
