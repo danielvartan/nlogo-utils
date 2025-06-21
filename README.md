@@ -11,7 +11,7 @@
 
 This is primarily intended for personal use, but you are welcome to use it if you find it helpful. Please note that not all functions are documented.
 
-> If you find this project useful, please consider giving it a star! &nbsp; [![GitHub repo stars](https://img.shields.io/github/stars/sustentarea/foodclim)](https://github.com/sustentarea/nlogo-utils/)
+> If you find this project useful, please consider giving it a star! &nbsp; [![GitHub repo stars](https://img.shields.io/github/stars/sustentarea/nlogo-utils)](https://github.com/sustentarea/nlogo-utils/)
 
 ## How to Use
 
@@ -80,12 +80,11 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `match` (`to-report`): Returns the first element in a list that matches a specified value
 - `normalize-path` (`to-report`): Normalizes a file path making it compatible with the user operating system
 - `random-beta` (`to-report`): Returns a random number from a beta distribution with parameters `alpha` and `beta`
-- `remove-world-bleed` (`to`): Check and remove world bleed patches, which are line of patches at the edges of the world that have a value of `0`
-- `rep` (`to-report`): Returns a list with an atomic value repeated a specified number of times
+- `remove-world-bleed` (`to`): Checks for and removes world bleed patches—lines of patches at the edges of the world with values of `0`, `"NA"`, or `NaN`.
 - `rescale` (`to-report`): Rescales a number from one range to another
 - `single-quote` (`to-report`): Returns values with single quotes. It also works with lists
 - `show-values` (`to`): A procedure for use with a `forever` button that displays patch values under the mouse cursor in the NetLogo view. Useful for interactively inspecting patch data during model runs.
-- `check-world-bleed` (`to-report`): Checks the full range of `pxcor` and `pycor` values to identify any lines of patches with a value of `0` or `NA`. Returns a list containing two ordered lists: one with the `pxcor` values and one with the `pycor` values of patches that meet this condition. If no such patches are found, both lists are empty.
+- `check-world-bleed` (`to-report`): Checks a range of `pxcor` and `pycor` values to identify any lines of patches with a value of `0`, `NA`, or `NaN`. Returns a list containing two ordered lists: one with the `pxcor` values and one with the `pycor` values of patches that meet this condition. If no such patches are found, both lists are empty.
 
 ## License
 
