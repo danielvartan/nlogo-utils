@@ -1,26 +1,9 @@
-; __includes ["check-list.nls" "check-number.nls"]
+; __includes ["extreme-unique-values.nls"]
 
-to-report has-extreme-unique-values? [#list #max-sd]
-  assert-list #list
-  assert-number #max-sd
-
-  set #max-sd abs #max-sd
-  let unique-values remove-duplicates #list
-  set unique-values filter [i -> is-number? i and not is-nan? i] unique-values
-
-  if ((empty? unique-values) or (length unique-values < 2)) [
-    error "'#list' must contain at least two numeric values."
-  ]
-
-  let sd standard-deviation unique-values
-
-  ifelse (sd > #max-sd) [
-    report true
-  ] [
-    report false
-  ]
+to-report has-extreme-unique-values? [#list #n-iqr]
+  report not empty? extreme-unique-values #list #n-iqr
 end
 
-to-report test-extreme-unique-values [#list #max-sd]
-  report has-extreme-unique-values? #list #max-sd
+to-report test-extreme-unique-values [#list #n-iqr]
+  report not empty? extreme-unique-values #list #n-iqr
 end
