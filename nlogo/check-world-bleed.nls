@@ -1,20 +1,34 @@
-; __include ["check-true.nls"]
+; __include ["check-all.nls"]
 
 to-report test-world-bleed
-  let left-patches [value] of patches with [pxcor = min-pxcor]
-  let right-patches [value] of patches with [pxcor = max-pxcor]
-  let down-patches [value] of patches with [pycor = min-pycor]
-  let top-patches [value] of patches with [pycor = max-pycor]
+  let pxcor-range (range min-pxcor (max-pxcor + 1))
+  let pycor-range (range min-pycor (max-pycor + 1))
 
-  let left-test map [i -> i = 0] left-patches
-  let right-test map [i -> i = 0] right-patches
-  let down-test map [i -> i = 0] down-patches
-  let top-test map [i -> i = 0] top-patches
+  let pxcor-bleed map test-xcor-bleed pxcor-range
+  set pxcor-bleed reduce sentence pxcor-bleed
 
-  report (list
-    all-true? left-test
-    all-true? right-test
-    all-true? down-test
-    all-true? top-test
-  )
+  let pycor-bleed map test-ycor-bleed pycor-range
+  set pycor-bleed reduce sentence pycor-bleed
+
+  report list pxcor-bleed pycor-bleed
+end
+
+to-report test-xcor-bleed [#xcor]
+  let patch-values [value] of patches with [pxcor = #xcor]
+
+  ifelse (all-member? patch-values (list 0 nan "NA")) [
+    report (list #xcor)
+  ] [
+    report []
+  ]
+end
+
+to-report test-ycor-bleed [#ycor]
+  let patch-values [value] of patches with [pycor = #ycor]
+
+  ifelse (all-member? patch-values (list 0 nan "NA")) [
+    report (list #ycor)
+  ] [
+    report []
+  ]
 end
