@@ -28,58 +28,64 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 
 `test` functions return `true` or `false`. `check` functions return `true` if the test passes, or a string with an error message if it fails. `assert` functions are procedures (not reporters) that throw an error if the test fails.
 
-- `is-atomic?` `test-atomic` (`to-report`): Tests whether a value is not a list.
-- `is-logical?` `test-logical` `test-boolean` (`to-report`): Tests whether a value is `true` or `false`.
-- `is-integer?` `test-integer` (`to-report`): Tests whether a value is an integer number.
-- `is-numeric?` `test-number` `test-numeric` (`to-report`): Tests whether a value is a number (integer or float).
-- `is-string?` `test-string` (`to-report`): Tests whether a value is a string.
-- `is-list?` `test-list` (`to-report`): Tests whether a value is a list.
-- `is-true?` `test-true` (`to-report`): Tests whether a value is `true`.
-- `is-false?` `test-false` (`to-report`): Tests whether a value is `false`.
-- `dir-exists?` `test-dir-exists` (`to-report`): Tests whether a directory exists.
-- `test-file-exists` (`to-report`): Tests whether a file exists.
-- `is-gis?` `test-gis` (`to-report`): Tests whether a value is a [GIS dataset](https://ccl.northwestern.edu/netlogo/docs/gis.html#gis:type-of).
-- `is-between?` `test-between` (`to-report`): Tests whether a value is between two numbers.
-- `test-choice` (`to-report`): Tests whether a value is one of a set of choices.
-- `test-world-bleed` (`to-report`): Tests whether the edges of the world contain a line of patches with a value of 0.
+- `is-atomic?` `test-atomic` (`to-report`): Tests whether a value is not a list
+- `is-logical?` `test-logical` `test-boolean` (`to-report`): Tests whether a value is `true` or `false`
+- `is-integer?` `test-integer` (`to-report`): Tests whether a value is an integer number
+- `is-numeric?` `test-number` `test-numeric` (`to-report`): Tests whether a value is a number (integer or float)
+- `is-string?` `test-string` (`to-report`): Tests whether a value is a string
+- `is-list?` `test-list` (`to-report`): Tests whether a value is a list
+- `is-true?` `test-true` (`to-report`): Tests whether a value is `true`
+- `is-false?` `test-false` (`to-report`): Tests whether a value is `false`
+- `dir-exists?` `test-dir-exists` (`to-report`): Tests whether a directory exists
+- `test-file-exists` (`to-report`): Tests whether a file exists
+- `is-gis?` `test-gis` (`to-report`): Tests whether a value is a [GIS dataset](https://ccl.northwestern.edu/netlogo/docs/gis.html#gis:type-of)
+- `is-between?` `test-between` (`to-report`): Tests whether a value is between two numbers
+- `test-choice` (`to-report`): Tests whether a value is one of a set of choices
+- `test-world-bleed` (`to-report`): Tests whether the edges of the world contain a line of patches with a value of 0
 
 <br>
 
-- `assert-atomic` (`to`): Asserts that a value is not a list.
-- `assert-logical` `assert-boolean` (`to`): Asserts that a value is `true` or `false`.
-- `assert-integer` (`to`): Asserts that a value is an integer.
-- `assert-number` `assert-numeric` (`to`): Asserts that a value is a number (integer or float).
-- `assert-string` (`to`): Asserts that a value is a string.
-- `assert-list` (`to`): Asserts that a value is a list.
-- `assert-true` (`to`): Asserts that a value is `true`.
-- `assert-false` (`to`): Asserts that a value is `false`.
-- `assert-dir-exists` (`to`): Asserts that a directory exists.
-- `assert-file-exists` (`to`): Asserts that a file exists.
-- `assert-gis` (`to`): Asserts that a value is a [GIS dataset](https://ccl.northwestern.edu/netlogo/docs/gis.html#gis:type-of).
-- `assert-between` (`to`): Asserts that a value is between two numbers.
-- `assert-choice` (`to`): Asserts that a value is one of a set of choices.
+- `assert-atomic` (`to`): Asserts that a value is not a list
+- `assert-logical` `assert-boolean` (`to`): Asserts that a value is `true` or `false`
+- `assert-integer` (`to`): Asserts that a value is an integer
+- `assert-number` `assert-numeric` (`to`): Asserts that a value is a number (integer or float)
+- `assert-string` (`to`): Asserts that a value is a string
+- `assert-list` (`to`): Asserts that a value is a list
+- `assert-true` (`to`): Asserts that a value is `true`
+- `assert-false` (`to`): Asserts that a value is `false`
+- `assert-dir-exists` (`to`): Asserts that a directory exists
+- `assert-file-exists` (`to`): Asserts that a file exists
+- `assert-gis` (`to`): Asserts that a value is a [GIS dataset](https://ccl.northwestern.edu/netlogo/docs/gis.html#gis:type-of)
+- `assert-between` (`to`): Asserts that a value is between two numbers
+- `assert-choice` (`to`): Asserts that a value is one of a set of choices
 
 ### Control Flow
 
-- `any-true?` (`to-report`): Tests if any element in a list is `true`.
-- `all-true?` (`to-report`): Tests if all elements in a list are `true`.
+- `any-member?` (`to-report`): Tests if any element in a list is a member of another list
+- `any-true?` (`to-report`): Tests if any element in a list is `true`
+- `list-any?` (`to-report`): Tests if any element in a list is equal to a specified value or to values in another list
+- `all-member?` (`to-report`): Tests if all elements in a list are members of another list
+- `all-true?` (`to-report`): Tests if all elements in a list are `true`
+- `list-all?` (`to-report`): Tests if all elements in a list are equal to a specified value or to values in another list
 
 ### Other Functions
 
-- `as-list` (`to-report`): Converts an atomic value to a list.
-- `as-string` (`to-report`): Converts any value to a string.
-- `combine` (`to-report`): Combines two lists into a single list.
-- `distance-between` (`to-report`): Returns the distance between two numbers.
-- `file-path` (`to-report`): Creates a file path from a directory and a file name.
-- `list-to-c` (`to-report`): Converts a NetLogo list into a string formatted as an R `c()` expression, with elements separated by commas (e.g., `[1 2 3]` → `"c(1, 2, 3)"`).
-- `match` (`to-report`): Returns the first element in a list that matches a specified value.
-- `normalize-path` (`to-report`): Normalizes a file path making it compatible with the user operating system.
-- `random-beta` (`to-report`): Returns a random number from a beta distribution with parameters `alpha` and `beta`.
-- `remove-world-bleed` (`to`): Check and remove world bleed patches, which are line of patches at the edges of the world that have a value of 0.
-- `rep` (`to-report`): Returns a list with an atomic value repeated a specified number of times.
-- `rescale` (`to-report`): Rescales a number from one range to another.
-- `single-quote` (`to-report`): Returns values with single quotes. It also works with lists.
+- `as-list` (`to-report`): Converts an atomic value to a list
+- `as-string` (`to-report`): Converts any value to a string
+- `collapse` (`to-report`): Collapses a list into a string using a separator (e.g., `[1 2 3 4]` → `"1, 2, 3, 4"`)
+- `combine` (`to-report`): Combines two lists into a single list
+- `distance-between` (`to-report`): Returns the distance between two numbers
+- `file-path` (`to-report`): Creates a file path from a directory and a file name
+- `list-to-c` (`to-report`): Converts a NetLogo list into a string formatted as an R `c()` expression, with elements separated by commas (e.g., `[1 2 3]` → `"c(1, 2, 3)"`)
+- `match` (`to-report`): Returns the first element in a list that matches a specified value
+- `normalize-path` (`to-report`): Normalizes a file path making it compatible with the user operating system
+- `random-beta` (`to-report`): Returns a random number from a beta distribution with parameters `alpha` and `beta`
+- `remove-world-bleed` (`to`): Check and remove world bleed patches, which are line of patches at the edges of the world that have a value of `0`
+- `rep` (`to-report`): Returns a list with an atomic value repeated a specified number of times
+- `rescale` (`to-report`): Rescales a number from one range to another
+- `single-quote` (`to-report`): Returns values with single quotes. It also works with lists
 - `show-values` (`to`): A procedure for use with a `forever` button that displays patch values under the mouse cursor in the NetLogo view. Useful for interactively inspecting patch data during model runs.
+- `check-world-bleed` (`to-report`): Checks the full range of `pxcor` and `pycor` values to identify any lines of patches with a value of `0` or `NA`. Returns a list containing two ordered lists: one with the `pxcor` values and one with the `pycor` values of patches that meet this condition. If no such patches are found, both lists are empty.
 
 ## License
 
