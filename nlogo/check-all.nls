@@ -1,4 +1,4 @@
-; __includes ["check-empty.nls" "check-list.nls"]
+; __includes ["check-empty.nls" "check-list.nls" "check-nan.nls"]
 
 to-report all-member? [#list #member-list]
   assert-list #list
@@ -37,4 +37,20 @@ end
 
 to-report all-false? [#list]
   report list-all? #list false
+end
+
+to-report all-member-or-nan? [#list #member-list]
+  assert-list #list
+  assert-not-empty #list
+  assert-list #member-list
+  assert-not-empty #member-list
+
+  set #list remove-duplicates #list
+  set #member-list remove-duplicates #member-list
+
+  let test map [
+    i -> (member? i #member-list) or (is-nan? i)
+  ] #list
+
+  report reduce [[i j] -> i and j] test
 end
