@@ -4,13 +4,13 @@
 to-report basename [#path]
   assert-string #path
 
-  let split string:split-on pathdir:get-separator #path
+  let out string:split-on pathdir:get-separator #path
 
-  if (empty? last split) [
-    while [empty? last split] [
-      set split butlast split
+  if (empty? last out) [
+    while [empty? last out] [
+      set out butlast out
     ]
   ]
 
-  report last split
+  report last out
 end

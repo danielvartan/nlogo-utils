@@ -1,9 +1,0 @@
-; __includes ["extreme-unique-values.nls"]
-
-to-report has-extreme-unique-values? [#list #n-iqr]
-  report not empty? extreme-unique-values #list #n-iqr
-end
-
-to-report test-extreme-unique-values [#list #n-iqr]
-  report not empty? extreme-unique-values #list #n-iqr
-end

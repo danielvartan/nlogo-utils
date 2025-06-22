@@ -1,0 +1,9 @@
+; __includes ["unique-outliers.nls"]
+
+to-report has-unique-outliers? [#list #n-iqr]
+  report not empty? unique-outliers #list #n-iqr
+end
+
+to-report test-unique-outliers [#list #n-iqr]
+  report not empty? unique-outliers #list #n-iqr
+end

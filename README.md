@@ -76,6 +76,7 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `collapse` (`to-report`): Collapses a list into a string using a separator (e.g., `[1 2 3 4]` → `"1, 2, 3, 4"`)
 - `combine` (`to-report`): Combines two lists into a single list
 - `distance-between` (`to-report`): Returns the distance between two numbers
+- `unique-outliers` (`to-report`): Returns a sorted list of unique outlier values from a given list. Outliers are defined as values greater than the third quartile plus a specified multiple of the interquartile range (IQR), or less than the first quartile minus the same multiple of the IQR. Duplicate values are removed before identifying outliers.
 - `file-path` (`to-report`): Creates a file path from a directory and a file name
 - `list-to-c` (`to-report`): Converts a NetLogo list into a string formatted as an R `c()` expression, with elements separated by commas (e.g., `[1 2 3]` → `"c(1, 2, 3)"`)
 - `match` (`to-report`): Returns the first element in a list that matches a specified value
