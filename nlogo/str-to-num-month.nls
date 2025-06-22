@@ -1,4 +1,4 @@
-; __includes ["check-string.nls" "check-choice.nls" "match.nls"]
+; __includes ["check-string.nls" "check-choice.nls"]
 
 to-report str-to-num-month [#month]
   let months (list
@@ -9,5 +9,5 @@ to-report str-to-num-month [#month]
   assert-string #month
   assert-choice #month months
 
-  report (match #month months) + 1
+  report (position #month months) + 1
 end
