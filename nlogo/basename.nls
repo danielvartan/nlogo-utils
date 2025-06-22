@@ -1,14 +1,16 @@
-; __includes ["check-string.nls" "normalize-path.nls"]
-; extensions [sr]
+; __includes ["check-string.nls"]
+; extensions [pathdir string]
 
-; Note: Ensure `sr:setup` is called in the `setup` procedure.
+to-report basename [#path]
+  assert-string #path
 
-to-report basename [#string]
-  assert-string #string
+  let split string:split-on pathdir:get-separator #path
 
-  report sr:runresult (word
-    "basename('"
-    normalize-path #string
-    "')"
-  )
+  if (empty? last split) [
+    while [empty? last split] [
+      set split butlast split
+    ]
+  ]
+
+  report last split
 end

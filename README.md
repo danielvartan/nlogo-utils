@@ -72,6 +72,7 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 
 - `as-list` (`to-report`): Converts an atomic value to a list
 - `as-string` (`to-report`): Converts any value to a string
+- `basename` (`to-report`): Returns the base name of a file or directory (i.e., the last part of the path)
 - `collapse` (`to-report`): Collapses a list into a string using a separator (e.g., `[1 2 3 4]` → `"1, 2, 3, 4"`)
 - `combine` (`to-report`): Combines two lists into a single list
 - `distance-between` (`to-report`): Returns the distance between two numbers
