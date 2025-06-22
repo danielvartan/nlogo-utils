@@ -1,27 +1,57 @@
-; Require the `stringr` R package.
-
 ; __includes [
+;   "as-list.nls"
+;   "as-string.nls"
+;   "check-atomic.nls"
 ;   "check-string.nls"
-;   "make-sr-compatible.nls"
-;   "single-quote.nls"
 ; ]
 
-; extensions [sr]
-
-; Note: Ensure `sr:setup` is called in the `setup` procedure.
+; extensions [string]
 
 to-report str-extract-all [#x #pattern]
   assert-string #pattern
 
-  set #x make-sr-compatible #x
+  set #x as-string #x
+  set #x as-list #x
 
-  report sr:runresult (word
-    "stringr::str_extract_all("
-    "string = "
-    #x
-    ", "
-    "pattern = "
-    single-quote #pattern
-    ")"
-  )
+  let out map [i -> str-extract-all-scalar i #pattern] #x
+
+  ifelse (length out = 1) [
+    report first out
+  ] [
+    report out
+  ]
+end
+
+to-report str-extract-all-scalar [#x #pattern]
+  assert-atomic #x
+  assert-string #pattern
+
+  set #x as-string #x
+
+  let nonmatches string:rex-split #x #pattern
+
+  ifelse (length nonmatches = 1) [
+    report "NA"
+  ] [
+    let out []
+
+    while [length nonmatches >= 2] [
+      let i #x
+      let i_nonmatches sublist nonmatches 0 2
+
+      set i string:rex-replace-first (word "^" first i_nonmatches) i ""
+
+      if (not (length nonmatches = 2)) [
+        set i string:rex-replace-first (word last i_nonmatches ".*$") i ""
+      ]
+
+      set out lput i out
+
+      let new-first-item (word (item 0 nonmatches) i (item 1 nonmatches))
+      set nonmatches butfirst nonmatches
+      set nonmatches replace-item 0 nonmatches new-first-item
+    ]
+
+    report out
+  ]
 end
