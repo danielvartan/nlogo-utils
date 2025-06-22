@@ -7,6 +7,10 @@
 
 ; extensions [string]
 
+; Limitations:
+; - It can't handle sequence matching
+;   (e.g., `str-extract-scalar "197019701970" "[0-9]{4}"`)
+
 to-report str-extract-all [#x #pattern]
   assert-string #pattern
 
@@ -30,8 +34,10 @@ to-report str-extract-all-scalar [#x #pattern]
 
   let nonmatches string:rex-split #x #pattern
 
-  ifelse (length nonmatches = 1) [
+  (ifelse (length nonmatches = 1) [
     report "NA"
+  ]  (list-all? nonmatches "") [
+    report n-values ((length nonmatches) - 1) [#x]
   ] [
     let out []
 
@@ -53,5 +59,5 @@ to-report str-extract-all-scalar [#x #pattern]
     ]
 
     report out
-  ]
+  ])
 end

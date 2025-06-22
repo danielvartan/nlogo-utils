@@ -7,6 +7,10 @@
 
 ; extensions [string]
 
+; Limitations:
+; - It can't handle sequence matching
+;   (e.g., `str-extract-scalar "197019701970" "[0-9]{4}"`)
+
 to-report str-extract [#x #pattern]
   assert-string #pattern
 
@@ -30,13 +34,15 @@ to-report str-extract-scalar [#x #pattern]
 
   let nonmatches string:rex-split #x #pattern
 
-  ifelse (length nonmatches = 1) [
+  (ifelse (length nonmatches = 1) [
     report "NA"
+  ] (list-all? nonmatches "") [
+    report #x
   ] [
     set nonmatches sublist nonmatches 0 2
     set #x string:rex-replace-first (word "^" first nonmatches) #x ""
     set #x string:rex-replace-first (word last nonmatches ".*$") #x ""
 
     report #x
-  ]
+  ])
 end
