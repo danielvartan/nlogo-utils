@@ -11,7 +11,7 @@
 
 This is primarily intended for personal use, but you are welcome to use it if you find it helpful. Please note that not all functions are documented.
 
-> If you find this project useful, please consider giving it a star! &nbsp; [![GitHub repo stars](https://img.shields.io/github/stars/sustentarea/nlogo-utils)](https://github.com/sustentarea/nlogo-utils/)
+> If you find this project useful, please consider giving it a star! &nbsp; [![GitHub repo stars](https://img.shields.io/github/stars/danielvartan/nlogo-utils)](https://github.com/danielvartan/nlogo-utils)
 
 ## How to Use
 
@@ -19,8 +19,7 @@ All functions are located in the `nlogo` directory. Each function resides in its
 
 Some functions may require dependencies, such as NetLogo extensions or other functions. Any dependencies are listed in the file header.
 
-Here are a few examples:
-> **Note:** In NetLogo, `atomic` values are any value that are not a list—such as numbers, strings, or booleans.
+Here are some examples:
 
 ### Control Flow and Logic
 
