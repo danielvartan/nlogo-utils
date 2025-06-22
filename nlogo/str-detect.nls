@@ -1,29 +1,17 @@
-; Require the `stringr` R package.
+; __includes ["as-list.nls"]
 
-; __includes [
-;   "check-string.nls"
-;   "make-sr-compatible.nls"
-;   "single-quote.nls"
-; ]
-
-; extensions [sr]
-
-; Note: Ensure `sr:setup` is called in the `setup` procedure.
-
-; IMPORTANT: Avoid using this procedure, use `string:rex-match?` instead.
+; `string:rex-match?` requires that you match the whole string.
+; (e.g., instead of `str-detect ["January" "February"] "ary$`,
+;  use `str-detect ["January" "February"] ".*ary$)
 
 to-report str-detect [#x #pattern]
-  assert-string #pattern
+  set #x as-list #x
 
-  set #x make-sr-compatible #x
+  let out map [i -> string:rex-match? #pattern i] #x
 
-  report sr:runresult (word
-    "stringr::str_detect("
-    "string = "
-    #x
-    ", "
-    "pattern = "
-    single-quote #pattern
-    ")"
-  )
+  ifelse (length out = 1) [
+    report first out
+  ] [
+    report out
+  ]
 end
