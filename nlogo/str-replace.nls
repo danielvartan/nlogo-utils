@@ -2,7 +2,7 @@
 
 ; __includes [
 ;   "check-string.nls"
-;   "normalize-value.nls"
+;   "make-sr-compatible.nls"
 ;   "single-quote.nls"
 ; ]
 
@@ -16,7 +16,7 @@ to-report str-replace [#x #pattern #replacement]
   assert-string #pattern
   assert-string #replacement
 
-  set #x normalize-value #x
+  set #x make-sr-compatible #x
 
   report sr:runresult (word
     "stringr::str_replace("

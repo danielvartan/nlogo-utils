@@ -1,11 +1,11 @@
-; __includes ["normalize-value.nls"]
+; __includes ["make-sr-compatible.nls"]
 ; extensions [sr]
 
 ; Note: Ensure `sr:setup` is called in the `setup` procedure.
 
 to-report r-match [#x #y]
-  set #x normalize-value #x
-  set #y normalize-value #y
+  set #x make-sr-compatible #x
+  set #y make-sr-compatible #y
 
   let out sr:runresult (word "match(" #x ", " #y ")")
 

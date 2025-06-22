@@ -2,7 +2,7 @@
 
 ; __includes [
 ;   "check-string.nls"
-;   "normalize-value.nls"
+;   "make-sr-compatible.nls"
 ;   "single-quote.nls"
 ; ]
 
@@ -13,7 +13,7 @@
 to-report str-extract-all [#x #pattern]
   assert-string #pattern
 
-  set #x normalize-value #x
+  set #x make-sr-compatible #x
 
   report sr:runresult (word
     "stringr::str_extract_all("
