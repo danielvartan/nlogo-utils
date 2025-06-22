@@ -6,7 +6,7 @@
 
 to-report check-world-bleed [#size]
   assert-numeric #size
-  assert-between #size  0 1
+  assert-between #size 0 1
 
   let pxcor-size floor world-width * #size
   let pxcor-range (range min-pxcor (max-pxcor + 1))

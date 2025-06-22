@@ -1,18 +1,13 @@
-; __includes ["check-atomic.nls" "normalize-value.nls"]
+; __includes ["normalize-value.nls"]
 ; extensions [sr]
 
 ; Note: Ensure `sr:setup` is called in the `setup` procedure.
 
-to-report match [#x #y]
+to-report r-match [#x #y]
   set #x normalize-value #x
   set #y normalize-value #y
 
-  let out sr:runresult (word
-    "match("
-    #x ", "
-    #y
-    ")"
-  )
+  let out sr:runresult (word "match(" #x ", " #y ")")
 
   (ifelse
     (is-number? out) [

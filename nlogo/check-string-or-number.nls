@@ -1,7 +1,3 @@
-; __includes ["check-string.nls"]
-
-; `is-number?` is a NetLogo base function.
-
 to-report is-string-or-number? [#x]
   ifelse (is-string? #x or is-number? #x) [
     report true

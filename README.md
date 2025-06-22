@@ -41,7 +41,7 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `is-gis?` `test-gis` (`to-report`): Tests whether a value is a [GIS dataset](https://ccl.northwestern.edu/netlogo/docs/gis.html#gis:type-of)
 - `is-between?` `test-between` (`to-report`): Tests whether a value is between two numbers
 - `test-choice` (`to-report`): Tests whether a value is one of a set of choices
-- `test-world-bleed` (`to-report`): Tests whether the edges of the world contain a line of patches with a value of 0
+- `is-windows?` `test-windows` (`to-report`): Tests whether the user is running NetLogo on a Windows operating system
 
 <br>
 
@@ -58,6 +58,9 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `assert-gis` (`to`): Asserts that a value is a [GIS dataset](https://ccl.northwestern.edu/netlogo/docs/gis.html#gis:type-of)
 - `assert-between` (`to`): Asserts that a value is between two numbers
 - `assert-choice` (`to`): Asserts that a value is one of a set of choices
+- `assert-windows` (`to`): Asserts that the user is running NetLogo on a Windows operating system
+
+Several other assertion functions are also available. Check the `nlogo` directory for more details.
 
 ### Control Flow
 
@@ -79,8 +82,8 @@ These functions follow NetLogo naming conventions for testing, as well as the co
 - `unique-outliers` (`to-report`): Returns a sorted list of unique outlier values from a given list. Outliers are defined as values greater than the third quartile plus a specified multiple of the interquartile range (IQR), or less than the first quartile minus the same multiple of the IQR. Duplicate values are removed before identifying outliers.
 - `file-path` (`to-report`): Creates a file path from a directory and a file name
 - `list-to-c` (`to-report`): Converts a NetLogo list into a string formatted as an R `c()` expression, with elements separated by commas (e.g., `[1 2 3]` → `"c(1, 2, 3)"`)
-- `match` (`to-report`): Returns the first element in a list that matches a specified value
 - `normalize-path` (`to-report`): Normalizes a file path making it compatible with the user operating system
+- `r-match` (`to-report`): Returns the first element in a list that matches a specified value
 - `random-beta` (`to-report`): Returns a random number from a beta distribution with parameters `alpha` and `beta`
 - `remove-world-bleed` (`to`): Checks for and removes world bleed patches—lines of patches at the edges of the world with values of `0`, `"NA"`, or `NaN`.
 - `rescale` (`to-report`): Rescales a number from one range to another

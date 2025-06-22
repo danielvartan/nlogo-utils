@@ -1,4 +1,4 @@
-; __includes ["check-string.nls" "check-integer.nls"]
+; __includes ["check-integer.nls"]
 
 to-report is-string-or-integer? [#x]
   ifelse (is-string? #x or is-integer? #x) [
