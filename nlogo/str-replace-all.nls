@@ -1,33 +1,18 @@
-; Require the `stringr` R package.
-
-; __includes [
-;   "check-string.nls"
-;   "make-sr-compatible.nls"
-;   "single-quote.nls"
-; ]
-
-; extensions [sr]
-
-; Note: Ensure `sr:setup` is called in the `setup` procedure.
-
-; IMPORTANT: Avoid using this procedure, use `string:rex-replace-all` instead.
+; __includes ["as-list.nls" "as-string.nls" "check-string.nls"]
+; extensions [string]
 
 to-report str-replace-all [#x #pattern #replacement]
   assert-string #pattern
   assert-string #replacement
 
-  set #x make-sr-compatible #x
+  set #x as-string #x
+  set #x as-list #x
 
-  report sr:runresult (word
-    "stringr::str_replace_all("
-    "string = "
-    #x
-    ", "
-    "pattern = "
-    single-quote #pattern
-    ", "
-    "replacement = "
-    single-quote #replacement
-    ")"
-  )
+  let out map [i -> string:rex-replace-all #pattern i #replacement] #x
+
+  ifelse (length out = 1) [
+    report first out
+  ] [
+    report out
+  ]
 end
