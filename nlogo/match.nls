@@ -1,0 +1,15 @@
+; __includes ["as-list.nls"]
+
+to-report match [#x #y]
+  set #x as-list #x
+  set #y as-list #y
+
+  let out map [i -> position i #y] #x
+  set out map [i -> ifelse-value (i = false) ["NA"] [i]] out
+
+  ifelse (length out = 1) [
+    report first out
+  ] [
+    report out
+  ]
+end

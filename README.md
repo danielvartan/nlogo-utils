@@ -83,7 +83,7 @@ Several other assertion functions are also available. Check the `nlogo` director
 - `file-path` (`to-report`): Creates a file path from a directory and a file name
 - `list-to-c` (`to-report`): Converts a NetLogo list into a string formatted as an R `c()` expression, with elements separated by commas (e.g., `[1 2 3]` → `"c(1, 2, 3)"`)
 - `normalize-path` (`to-report`): Normalizes a file path making it compatible with the user operating system
-- `r-match` (`to-report`): Returns the first element in a list that matches a specified value
+- `match` (`to-report`): Returns the first element in a list that matches a specified value
 - `random-beta` (`to-report`): Returns a random number from a beta distribution with parameters `alpha` and `beta`
 - `remove-world-bleed` (`to`): Checks for and removes world bleed patches—lines of patches at the edges of the world with values of `0`, `"NA"`, or `NaN`.
 - `rescale` (`to-report`): Rescales a number from one range to another
