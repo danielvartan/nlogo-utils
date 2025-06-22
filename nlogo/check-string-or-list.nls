@@ -1,0 +1,25 @@
+to-report is-string-or-list? [#x]
+  ifelse (is-string? #x or is-list? #x) [
+    report true
+  ] [
+    report false
+  ]
+end
+
+to-report test-string-or-list [#x]
+  report is-string-or-list? #x
+end
+
+to-report check-string-or-list [#x]
+  ifelse (is-string-or-list? #x) [
+    report true
+  ] [
+    report "The value is neither a string nor a list."
+  ]
+end
+
+to assert-string-or-list [#x]
+  if (not is-string-or-list? #x) [
+    error check-string-or-list #x
+  ]
+end
