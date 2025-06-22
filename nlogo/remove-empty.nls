@@ -1,0 +1,5 @@
+to-report remove-empty [#list]
+  assert-list #list
+
+  report filter [i -> not ((i = []) or (i = ""))] #list
+end
