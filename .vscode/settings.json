@@ -24,6 +24,8 @@
     "lput",
     "nonmatches",
     "pathdir",
+    "pcolor",
+    "plabel",
     "pxcor",
     "pycor",
     "runresult",
