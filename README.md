@@ -100,7 +100,7 @@ Several other assertion functions are also available. Check the `nlogo` director
 - `num-to-str-month` (`to-report`): Converts a numeric month value (`1` for January, `2` for February, etc.) to its corresponding string representation (e.g., `1` → `"January"`)
 - `rep-collapse` (`to-report`): Repeats and collapses a value into a string.
 - `single-quote` (`to-report`): Returns values with single quotes. It also works with lists.
-- `str-detect` (`to-report`): Detecs the presence/absense of a match in a string using a regular expression. Returns `true` if the match is found, `false` otherwise.
+- `str-detect` (`to-report`): Detects the presence/absence of a match in a string using a regular expression. Returns `true` if the match is found, `false` otherwise.
 - `str-extract` (`to-report`): Extracts a match from a string using a regular expression. Returns the first match found, or `"NA"` if no match is found.
 - `str-extract-all` (`to-report`): Extracts all matches from a string using a regular expression. Returns a list of all matches found, with `"NA"` for any non-matching elements.
 - `str-remove` (`to-report`): Removes a match from a string using a regular expression. Returns the string with the first match removed, or the original string if no match is found.
