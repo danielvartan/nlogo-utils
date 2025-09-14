@@ -1,7 +1,6 @@
 ; __include [
 ;   "check-integer.nls"
 ;   "check-between.nls"
-;   "check-choice.nls"
 ;   "check-list.nls"
 ;   "check-numeric.nls"
 ;   "check-world-bleed.nls"
@@ -13,32 +12,35 @@ to remove-world-bleed [#size #mode]
   assert-integer #mode
   assert-choice #mode [0 1]
 
-  let test check-world-bleed #size
-  let xcor-world-bleed item 0 test
-  let ycor-world-bleed item 1 test
+  let #test check-world-bleed #size
+  let #xcor-world-bleed item 0 #test
+  let #ycor-world-bleed item 1 #test
 
  (ifelse (#mode = 0) [
     resize-world
-      match-pcor min-pxcor xcor-world-bleed
-      match-pcor max-pxcor xcor-world-bleed
-      match-pcor min-pycor ycor-world-bleed
-      match-pcor max-pycor ycor-world-bleed
+      match-pcor min-pxcor #xcor-world-bleed
+      match-pcor max-pxcor #xcor-world-bleed
+      match-pcor min-pycor #ycor-world-bleed
+      match-pcor max-pycor #ycor-world-bleed
   ] (#mode = 1) [
-    let replacement nan
+    let #replacement nan
 
     ask patches with [
-      (member? pxcor xcor-world-bleed) or
-      (member? pycor ycor-world-bleed)
+      (member? pxcor #xcor-world-bleed) or
+      (member? pycor #ycor-world-bleed)
     ] [
-      set value replacement
+      set value #replacement
     ]
   ] [
-    user-message (word
+    let #message (word
       "Mode "
       single-quote #mode
       " is not a valid option. "
       "Please check your settings."
     )
+
+    user-message #message
+    error #message
   ])
 end
 
