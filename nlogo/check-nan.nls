@@ -1,8 +1,12 @@
 to-report is-nan? [#x]
-  ifelse ((#x <= 0) or (#x >= 0)) [
-    report false
+  carefully [
+    ifelse ((#x <= 0) or (#x >= 0)) [
+      report false
+    ] [
+      report true
+    ]
   ] [
-    report true
+    report false
   ]
 end
 
@@ -14,7 +18,7 @@ to-report check-nan [#x]
   ifelse (is-nan? #x) [
     report true
   ] [
-    report "The value is not NaN."
+    report "The value is not `NaN`."
   ]
 end
 
