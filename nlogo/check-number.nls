@@ -2,7 +2,6 @@
 ; `is-number?` is a NetLogo base function.
 
 to-report is-numeric? [#x]
-  report is-number? #x
   (ifelse (is-number? #x) [
     report true
   ] (is-list? #x) [
